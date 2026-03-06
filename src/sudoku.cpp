@@ -1,4 +1,4 @@
-#include "Sudoku.h"
+#include "../include/sudoku.h"
 #include <iostream>
 #include <algorithm>
 #include <chrono>

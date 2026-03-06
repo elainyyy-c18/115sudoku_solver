@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "Sudoku.h"
+#include "include/sudoku.h"
 
 using namespace std;
 
