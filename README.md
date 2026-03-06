@@ -46,17 +46,54 @@ make
 
 ## Algorithm
 
-This project uses a **backtracking algorithm** to solve Sudoku puzzles.
+This project solves Sudoku using a **backtracking search algorithm**.
 
-The solver works by filling empty cells one by one.
-For each empty cell, it tries numbers from **1 to 9** and checks whether the placement is valid according to Sudoku rules:
+The algorithm works as follows:
 
-* The number must not already appear in the same **row**
-* The number must not appear in the same **column**
-* The number must not appear in the same **3×3 subgrid**
+1. Find the next empty cell.
+2. Try numbers from 1 to 9.
+3. Check if the number is valid:
+   - Not in the same row
+   - Not in the same column
+   - Not in the same 3×3 subgrid
+4. Recursively attempt to solve the rest of the board.
+5. If no number works, backtrack to the previous step.
 
-If a placement is valid, the algorithm recursively continues solving the rest of the puzzle.
-If no number works, the algorithm **backtracks** to the previous step and tries a different number.
+### Time Complexity
+
+Worst case complexity:
+
+O(9^(n))
+
+where n is the number of empty cells.
+
+However, pruning through Sudoku constraints significantly reduces the search space in practice.
+
+---
+
+## Solver Flow
+
+Start
+  │
+  ▼
+Find empty cell
+  │
+  ▼
+Try number 1-9
+  │
+  ▼
+Is valid?
+ ├─ No → try next number
+ │
+ └─ Yes
+      │
+      ▼
+  Recurse solve
+      │
+      ▼
+Solved?
+ ├─ Yes → Done
+ └─ No → Backtrack
 
 ---
 
